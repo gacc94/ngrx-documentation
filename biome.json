@@ -1,0 +1,76 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
+    "files": {
+        "includes": ["**", "!**/dist", "!**/.angular", "!!**/dist"],
+        "ignoreUnknown": true
+    },
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true,
+        "defaultBranch": "main"
+    },
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 120,
+        "lineEnding": "lf",
+        "formatWithErrors": true,
+        "useEditorconfig": false
+    },
+    "javascript": {
+        "parser": {
+            "unsafeParameterDecoratorsEnabled": true
+        },
+        "formatter": {
+            "quoteStyle": "single",
+            "semicolons": "always",
+            "trailingCommas": "all"
+        }
+    },
+    "json": {
+        "parser": {
+            "allowComments": true,
+            "allowTrailingCommas": true
+        }
+    },
+    "css": {
+        "parser": {
+            "cssModules": false
+        }
+    },
+    "html": {
+        "parser": {
+            "interpolation": true
+        },
+        "formatter": {
+            "attributePosition": "auto"
+        }
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "suspicious": {
+                "noExplicitAny": "off"
+            },
+            "a11y": {
+                "noSvgWithoutTitle": "off",
+                "useAriaPropsForRole": "off"
+            }
+        }
+    },
+    "overrides": [
+        {
+            "includes": ["*.spec.ts", "*.test.ts"],
+            "linter": {
+                "rules": {
+                    "style": {
+                        "noNonNullAssertion": "off"
+                    }
+                }
+            }
+        }
+    ]
+}

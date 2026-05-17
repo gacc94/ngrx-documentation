@@ -53,3 +53,63 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Design services around a single responsibility
 - Use the `providedIn: 'root'` option for singleton services
 - Use the `inject()` function instead of constructor injection
+
+## Toolchain
+
+This project uses the following tools for code quality and consistency:
+
+### Code Formatting & Linting (Biome)
+
+Format and lint with [Biome](https://biomejs.dev/). Prettier has been removed.
+
+- **Format**: `bun run format` — auto-formats all files (4-space indent, 120-char width, single quotes, LF line endings)
+- **Check**: `bun run format:check` — verifies formatting without modifying files
+- **Lint**: `bun run lint` — runs linter only
+- **CI**: `bun ci` — CI-optimized check (use in GitHub Actions)
+
+Configuration: `biome.json` at project root.
+
+### Git Hooks (Lefthook)
+
+[Lefthook](https://lefthook.dev/) manages git hooks automatically (installed via `bun install`).
+
+- **pre-commit**: Formats staged files with Biome, auto-fixes lint issues, re-stages fixed files. Blocks commit on remaining errors.
+- **commit-msg**: Validates commit messages follow Conventional Commits with emoji prefixes.
+
+Run hooks manually: `bun lefthook run pre-commit`
+
+### Commit Messages (Commitlint)
+
+All commits must follow [Conventional Commits](https://www.conventionalcommits.org/) with emoji prefixes:
+
+```
+✨ feat: add new feature
+🐛 fix: resolve bug
+👷 ci: update CI pipeline
+📝 docs: update documentation
+🎨 style: format code
+♻️ refactor: restructure module
+⚡ perf: improve performance
+✅ test: add tests
+🔧 chore: maintenance task
+📦 build: dependency update
+⏪ revert: rollback change
+```
+
+Format: `<emoji> <type>(<scope>): <description>`
+
+Configuration: `commitlint.config.ts`
+
+### Changelog (conventional-changelog)
+
+Generate `CHANGELOG.md` from commit history:
+
+- `bun run changelog` — since last tag
+- `bun run changelog:first` — full history
+- `bun version patch|minor|major` — auto-generates + stages changelog before version bump
+
+### CI/CD (GitHub Actions)
+
+`.github/workflows/ci.yml` runs on every push/PR to `main`:
+1. `quality` job: Biome check + TypeScript type check
+2. `test` job: Vitest test suite

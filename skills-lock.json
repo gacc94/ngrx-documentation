@@ -1,53 +1,53 @@
 {
-  "version": 1,
-  "skills": {
-    "angular-best-practices-ngrx": {
-      "source": "alfredoperez/angular-best-practices",
-      "sourceType": "github",
-      "skillPath": "skills/angular-best-practices-ngrx/SKILL.md",
-      "computedHash": "3ced41dfe6d6738c27627675a4a8f48228badcd6470654173cc235d04d812a6f"
-    },
-    "angular-signals": {
-      "source": "analogjs/angular-skills",
-      "sourceType": "github",
-      "skillPath": "skills/angular-signals/SKILL.md",
-      "computedHash": "ddedef1232295f200b966778bc36d16fc07d2113ad1dbc73d75d14eb544953bc"
-    },
-    "github-actions-docs": {
-      "source": "xixu-me/skills",
-      "sourceType": "github",
-      "skillPath": "skills/github-actions-docs/SKILL.md",
-      "computedHash": "e9ac24e79715ef3060bd4ae376052f8d863b830604e69cb513b39764bf47ee53"
-    },
-    "ngrx": {
-      "source": "oguzhan18/angular-ecosystem-skills",
-      "sourceType": "github",
-      "skillPath": "skills/ngrx/SKILL.md",
-      "computedHash": "798812ef44d47cc6370d6c9466df7983e754860a24519c4e7b5f3c700648af99"
-    },
-    "openspec-archiving": {
-      "source": "forztf/open-skilled-sdd",
-      "sourceType": "github",
-      "skillPath": "skills/openspec-archiving/SKILL.md",
-      "computedHash": "618b070a388486ae98d95f12235c9e98ea3d6697352b5ead353982f7d090cffc"
-    },
-    "openspec-context-loading": {
-      "source": "forztf/open-skilled-sdd",
-      "sourceType": "github",
-      "skillPath": "skills/openspec-context-loading/SKILL.md",
-      "computedHash": "1689b4b16cef43b1f6da7b1b9c80180d4ccf7a26f4f762f5e307fc027f3919b7"
-    },
-    "openspec-implementation": {
-      "source": "forztf/open-skilled-sdd",
-      "sourceType": "github",
-      "skillPath": "skills/openspec-implementation/SKILL.md",
-      "computedHash": "07da259f3bad1632ced61cb553d35c16f4f263d1d041712b6a4e0802653e502d"
-    },
-    "openspec-proposal-creation": {
-      "source": "forztf/open-skilled-sdd",
-      "sourceType": "github",
-      "skillPath": "skills/openspec-proposal-creation/SKILL.md",
-      "computedHash": "4daf55467d064d664d2ca6eb5434ee9c1bfb6c14c94ec43b02aee477e55da684"
+    "version": 1,
+    "skills": {
+        "angular-best-practices-ngrx": {
+            "source": "alfredoperez/angular-best-practices",
+            "sourceType": "github",
+            "skillPath": "skills/angular-best-practices-ngrx/SKILL.md",
+            "computedHash": "3ced41dfe6d6738c27627675a4a8f48228badcd6470654173cc235d04d812a6f"
+        },
+        "angular-signals": {
+            "source": "analogjs/angular-skills",
+            "sourceType": "github",
+            "skillPath": "skills/angular-signals/SKILL.md",
+            "computedHash": "ddedef1232295f200b966778bc36d16fc07d2113ad1dbc73d75d14eb544953bc"
+        },
+        "github-actions-docs": {
+            "source": "xixu-me/skills",
+            "sourceType": "github",
+            "skillPath": "skills/github-actions-docs/SKILL.md",
+            "computedHash": "e9ac24e79715ef3060bd4ae376052f8d863b830604e69cb513b39764bf47ee53"
+        },
+        "ngrx": {
+            "source": "oguzhan18/angular-ecosystem-skills",
+            "sourceType": "github",
+            "skillPath": "skills/ngrx/SKILL.md",
+            "computedHash": "798812ef44d47cc6370d6c9466df7983e754860a24519c4e7b5f3c700648af99"
+        },
+        "openspec-archiving": {
+            "source": "forztf/open-skilled-sdd",
+            "sourceType": "github",
+            "skillPath": "skills/openspec-archiving/SKILL.md",
+            "computedHash": "618b070a388486ae98d95f12235c9e98ea3d6697352b5ead353982f7d090cffc"
+        },
+        "openspec-context-loading": {
+            "source": "forztf/open-skilled-sdd",
+            "sourceType": "github",
+            "skillPath": "skills/openspec-context-loading/SKILL.md",
+            "computedHash": "1689b4b16cef43b1f6da7b1b9c80180d4ccf7a26f4f762f5e307fc027f3919b7"
+        },
+        "openspec-implementation": {
+            "source": "forztf/open-skilled-sdd",
+            "sourceType": "github",
+            "skillPath": "skills/openspec-implementation/SKILL.md",
+            "computedHash": "07da259f3bad1632ced61cb553d35c16f4f263d1d041712b6a4e0802653e502d"
+        },
+        "openspec-proposal-creation": {
+            "source": "forztf/open-skilled-sdd",
+            "sourceType": "github",
+            "skillPath": "skills/openspec-proposal-creation/SKILL.md",
+            "computedHash": "4daf55467d064d664d2ca6eb5434ee9c1bfb6c14c94ec43b02aee477e55da684"
+        }
     }
-  }
 }
