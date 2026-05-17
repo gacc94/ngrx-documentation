@@ -1,0 +1,39 @@
+{
+    "branches": ["main"],
+    "plugins": [
+        [
+            "@semantic-release/commit-analyzer",
+            {
+                "preset": "angular",
+                "parserOpts": {
+                    "headerPattern": "^[^\\w\\s]+\\s*(\\w+)(?:\\(([^)]+)\\))?!?:\\s(.*)$",
+                    "headerCorrespondence": ["type", "scope", "subject"]
+                }
+            }
+        ],
+        [
+            "@semantic-release/release-notes-generator",
+            {
+                "preset": "angular",
+                "parserOpts": {
+                    "headerPattern": "^[^\\w\\s]+\\s*(\\w+)(?:\\(([^)]+)\\))?!?:\\s(.*)$",
+                    "headerCorrespondence": ["type", "scope", "subject"]
+                }
+            }
+        ],
+        [
+            "@semantic-release/changelog",
+            {
+                "changelogFile": "CHANGELOG.md"
+            }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "assets": ["CHANGELOG.md"],
+                "message": "🔖 release: ${nextRelease.version}\n\n${nextRelease.notes}"
+            }
+        ],
+        "@semantic-release/github"
+    ]
+}
