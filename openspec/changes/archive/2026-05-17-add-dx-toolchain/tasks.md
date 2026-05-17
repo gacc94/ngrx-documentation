@@ -30,5 +30,5 @@
 
 - [x] 15. Create `.github/workflows/ci.yml` with quality and test jobs
 - [x] 16. Push the workflow and verify it executes (remote created, CI triggers on push to main)
-- [ ] 23. Test version workflow: `bun version patch` (requires tag to verify end-to-end)
-- [ ] 24. Verify CI workflow passes all checks on GitHub Actions (running on push)
+- [x] 23. Test version workflow: version bump 0.0.0 → 0.0.1, changelog regenerated, tag created, pushed
+- [x] 24. Verify CI workflow passes all checks on GitHub Actions (first run: ✅ 36s success)
