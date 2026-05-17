@@ -12,9 +12,9 @@
         "lint": "biome lint .",
         "ci": "biome ci .",
         "prepare": "lefthook install",
-        "changelog": "conventional-changelog -p angular",
-        "changelog:first": "conventional-changelog -p angular -r 0",
-        "preversion": "conventional-changelog -p angular && git add CHANGELOG.md",
+        "changelog": "conventional-changelog -n .versionrc.json",
+        "changelog:first": "conventional-changelog -n .versionrc.json -r 0",
+        "preversion": "conventional-changelog -n .versionrc.json && git add CHANGELOG.md",
         "version": "echo version complete"
     },
     "private": true,
