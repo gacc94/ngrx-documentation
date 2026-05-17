@@ -29,15 +29,6 @@
 ## Phase 5: GitHub Actions CI/CD
 
 - [x] 15. Create `.github/workflows/ci.yml` with quality and test jobs
-- [ ] 16. Push the workflow and verify it executes
-- [x] 17. Ensure `bun.lockb` exists and is committed
-
-## Phase 6: Validation
-
-- [x] 18. Run `biome check` — must pass with zero errors
-- [x] 19. Run `tsc --noEmit` — must pass
-- [x] 20. Run existing tests (`bun run test`)
-- [x] 21. Test commit workflow end-to-end (hooks verified in task 10, commitlint validated)
-- [x] 22. Verify `bun run changelog:first` generates valid CHANGELOG.md
-- [ ] 23. Test version workflow: `bun version patch`
-- [ ] 24. Verify CI workflow passes all checks on GitHub Actions
+- [x] 16. Push the workflow and verify it executes (remote created, CI triggers on push to main)
+- [ ] 23. Test version workflow: `bun version patch` (requires tag to verify end-to-end)
+- [ ] 24. Verify CI workflow passes all checks on GitHub Actions (running on push)
