@@ -17,6 +17,7 @@ import { interval, takeWhile } from 'rxjs';
     selector: 'app-movie-carousel',
     imports: [MatIconModule, MatIconButton],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    styleUrl: './movie-carousel.scss',
     template: `
         <div class="carousel-container">
             <div class="carousel-header">
@@ -30,63 +31,16 @@ import { interval, takeWhile } from 'rxjs';
                     </button>
                 </div>
             </div>
-            <div #track class="carousel-track" (scroll)="onScroll()" (mouseenter)="pauseAuto()" (mouseleave)="resumeAuto()">
+            <div
+                #track
+                class="carousel-track"
+                (scroll)="onScroll()"
+                (mouseenter)="pauseAuto()"
+                (mouseleave)="resumeAuto()"
+            >
                 <ng-content />
             </div>
         </div>
-    `,
-    styles: `
-        :host {
-            display: block;
-            margin-bottom: 32px;
-        }
-
-        .carousel-container {
-            position: relative;
-        }
-
-        .carousel-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .carousel-title {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--mat-sys-on-surface);
-        }
-
-        .carousel-controls {
-            display: flex;
-            gap: 4px;
-        }
-
-        .carousel-track {
-            display: flex;
-            gap: 16px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            scroll-behavior: smooth;
-            padding-bottom: 8px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--mat-sys-outline-variant) transparent;
-
-            &::-webkit-scrollbar {
-                height: 6px;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background: var(--mat-sys-outline-variant);
-                border-radius: 3px;
-            }
-
-            &::-webkit-scrollbar-track {
-                background: transparent;
-            }
-        }
     `,
 })
 export class MovieCarouselComponent implements AfterViewInit {
@@ -98,7 +52,7 @@ export class MovieCarouselComponent implements AfterViewInit {
     protected atStart = true;
     protected atEnd = false;
 
-    #destroyRef = inject(DestroyRef);
+    readonly #destroyRef = inject(DestroyRef);
     #autoScrollActive = true;
 
     ngAfterViewInit(): void {

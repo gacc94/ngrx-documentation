@@ -4,13 +4,15 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 
 import { PrefetchDirective } from '@app/cache/prefetch.directive';
+import { MovieImagePipe } from '../../../application/movie-image.pipe';
 import type { Movie } from '../../../domain/movie.model';
 import { MovieApi } from '../../../infrastructure/movie.api';
 
 @Component({
     selector: 'app-movie-card',
-    imports: [RouterLink, MatCardModule, PrefetchDirective, DecimalPipe, DatePipe],
+    imports: [RouterLink, MatCardModule, PrefetchDirective, MovieImagePipe, DecimalPipe, DatePipe],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    styleUrl: './movie-card.scss',
     template: `
         <a
             [routerLink]="['/movies', movie().id]"
@@ -20,8 +22,14 @@ import { MovieApi } from '../../../infrastructure/movie.api';
             [appPrefetchOptions]="{ staleTime: 120_000, persist: true }"
         >
             <mat-card class="movie-card" appearance="outlined">
-                @if (imageUrl()) {
-                    <img mat-card-image [src]="imageUrl()" [alt]="movie().title" loading="lazy" />
+                @if (movie().posterPath) {
+                    <img
+                        mat-card-image
+                        class="poster-image"
+                        [src]="movie().posterPath | movieImage: 'w500'"
+                        [alt]="movie().title"
+                        loading="lazy"
+                    />
                 } @else {
                     <div class="no-poster">
                         <span>No Poster</span>
@@ -37,66 +45,9 @@ import { MovieApi } from '../../../infrastructure/movie.api';
             </mat-card>
         </a>
     `,
-    styles: `
-        :host {
-            display: block;
-            min-width: 185px;
-            max-width: 185px;
-            flex-shrink: 0;
-        }
-
-        .movie-card-link {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .movie-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-            background: var(--mat-sys-surface-container);
-
-            &:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            }
-        }
-
-        img {
-            height: 278px;
-            object-fit: cover;
-        }
-
-        .no-poster {
-            height: 278px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--mat-sys-surface-container-highest);
-            color: var(--mat-sys-on-surface-variant);
-            font-size: 0.875rem;
-        }
-
-        .movie-title {
-            margin: 0 0 4px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .movie-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: var(--mat-sys-on-surface-variant);
-        }
-    `,
 })
 export class MovieCardComponent {
     readonly movie = input.required<Movie>();
-    readonly imageUrl = input.required<string>();
-
     readonly #api = inject(MovieApi);
 
     readonly prefetchFn = (): ReturnType<MovieApi['getById']> => this.#api.getById(this.movie().id);

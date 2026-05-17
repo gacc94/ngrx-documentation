@@ -1,6 +1,5 @@
 import { inject } from '@angular/core';
 import { QueryCacheService } from '@app/cache';
-import { environment } from '@env';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { map } from 'rxjs';
 import type { Movie } from '../domain/movie.model';
@@ -23,15 +22,19 @@ const initialState: MovieState = {
     loading: {},
 };
 
+const STATE_KEY_MAP: Record<MovieCategoryKey, keyof MovieState> = {
+    now_playing: 'nowPlaying',
+    popular: 'popular',
+    top_rated: 'topRated',
+    upcoming: 'upcoming',
+};
+
 export const MovieStore = signalStore(
     { providedIn: 'root' },
     withState(initialState),
     withMethods((store, api = inject(MovieApi), cache = inject(QueryCacheService)) => ({
-        imageUrl(path: string | null, size: 'w500' | 'original' = 'w500'): string {
-            return path ? `${environment.tmdbImageUrl}/${size}${path}` : '';
-        },
-
         loadCategory(category: MovieCategoryKey): void {
+            const stateKey = STATE_KEY_MAP[category];
             patchState(store, (s) => ({ loading: { ...s.loading, [category]: true } }));
 
             cache
@@ -42,7 +45,7 @@ export const MovieStore = signalStore(
                 .subscribe({
                     next: (movies) =>
                         patchState(store, (s) => ({
-                            [category]: movies,
+                            [stateKey]: movies,
                             loading: { ...s.loading, [category]: false },
                         })),
                     error: () =>

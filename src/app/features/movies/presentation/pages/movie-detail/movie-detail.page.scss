@@ -1,0 +1,131 @@
+:host {
+    display: block;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.detail-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.backdrop {
+    position: absolute;
+    inset: 0;
+    height: 500px;
+    background-size: cover;
+    background-position: center top;
+}
+
+.backdrop-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), var(--mat-sys-background) 95%);
+}
+
+.detail-content {
+    position: relative;
+    z-index: 1;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-button {
+    margin-bottom: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
+}
+
+.poster {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.no-poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mat-sys-surface-container-highest);
+    border-radius: 12px;
+}
+
+.info-column {
+    padding-top: 60px;
+
+    .movie-title {
+        margin: 0 0 16px;
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+    }
+}
+
+.meta-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+    color: var(--mat-sys-on-surface-variant);
+}
+
+.overview-section {
+    margin-bottom: 16px;
+
+    .overview-title {
+        margin: 0 0 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .overview-text {
+        margin: 0;
+        line-height: 1.7;
+        color: var(--mat-sys-on-surface-variant);
+    }
+}
+
+@media (max-width: 768px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-column {
+        padding-top: 0;
+
+        .movie-title {
+            font-size: 1.75rem;
+        }
+    }
+
+    .meta-row {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .detail-content {
+        padding: 16px;
+    }
+
+    .back-button {
+        margin-bottom: 160px;
+    }
+}
