@@ -4,6 +4,14 @@
 ### Features
 
 * ✨ feat: add reactive cache service with stale-while-revalidate, dedup, and prefetch directive ([8fe4458](https://github.com/gacc94/ngrx-documentation/commit/8fe445802b85c62069c264a080a0754eb362a13c))
+* ✨ feat: add TMDB movies app with SignalStore, cache, prefetch, and Material carousels ([a3e09e3](https://github.com/gacc94/ngrx-documentation/commit/a3e09e3191521fe9685491eb8f191ebff5e90372))
+
+# [1.1.0](https://github.com/gacc94/ngrx-documentation/compare/v1.0.0...v1.1.0) (2026-05-17)
+
+
+### Features
+
+* ✨ feat: add reactive cache service with stale-while-revalidate, dedup, and prefetch directive ([8fe4458](https://github.com/gacc94/ngrx-documentation/commit/8fe445802b85c62069c264a080a0754eb362a13c))
 
 # 1.0.0 (2026-05-17)
 
