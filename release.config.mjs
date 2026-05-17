@@ -29,6 +29,12 @@ export default {
             },
         ],
         [
+            '@semantic-release/npm',
+            {
+                npmPublish: false,
+            },
+        ],
+        [
             '@semantic-release/changelog',
             {
                 changelogFile: 'CHANGELOG.md',
@@ -37,7 +43,7 @@ export default {
         [
             '@semantic-release/git',
             {
-                assets: ['CHANGELOG.md'],
+                assets: ['package.json', 'CHANGELOG.md'],
                 // biome-ignore lint/suspicious/noTemplateCurlyInString: semantic-release template syntax, not JS
                 message: '🔧 chore(release): ${nextRelease.version}',
             },
