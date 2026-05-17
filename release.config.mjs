@@ -1,6 +1,6 @@
 const parserOpts = {
     headerPattern: /^[^\w\s]+\s*(\w+)(?:\(([^)]+)\))?!?:\s(.*)$/,
-    headerCorrespondence: ['type', 'scope', 'subject'],
+    headerCorrespondence: ['type'],
 };
 
 export default {
@@ -18,14 +18,6 @@ export default {
             {
                 preset: 'angular',
                 parserOpts,
-                writerOpts: {
-                    transform: (commit) => {
-                        if (commit.header) {
-                            commit.subject = commit.header;
-                        }
-                        return commit;
-                    },
-                },
             },
         ],
         [
