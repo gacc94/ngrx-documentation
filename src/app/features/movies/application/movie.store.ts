@@ -12,6 +12,9 @@ interface MovieState {
     topRated: Movie[];
     upcoming: Movie[];
     loading: Record<string, boolean>;
+    loadingMore: Record<string, boolean>;
+    currentPage: Record<string, number>;
+    totalPages: Record<string, number>;
 }
 
 const initialState: MovieState = {
@@ -20,6 +23,9 @@ const initialState: MovieState = {
     topRated: [],
     upcoming: [],
     loading: {},
+    loadingMore: {},
+    currentPage: {},
+    totalPages: {},
 };
 
 const STATE_KEY_MAP: Record<MovieCategoryKey, keyof MovieState> = {
@@ -46,11 +52,38 @@ export const MovieStore = signalStore(
                     next: (movies) =>
                         patchState(store, (s) => ({
                             [stateKey]: movies,
+                            currentPage: { ...s.currentPage, [category]: 1 },
                             loading: { ...s.loading, [category]: false },
                         })),
                     error: () =>
                         patchState(store, (s) => ({
                             loading: { ...s.loading, [category]: false },
+                        })),
+                });
+        },
+
+        loadMore(category: MovieCategoryKey): void {
+            const stateKey = STATE_KEY_MAP[category];
+            const nextPage = (store.currentPage() as Record<string, number>)[category] + 1;
+            const totalPages = (store.totalPages() as Record<string, number>)[category];
+
+            if (totalPages && nextPage > totalPages) return;
+
+            patchState(store, (s) => ({ loadingMore: { ...s.loadingMore, [category]: true } }));
+
+            api.getCategory(category, nextPage)
+                .pipe(map((res) => ({ movies: res.results, totalPages: res.totalPages })))
+                .subscribe({
+                    next: ({ movies, totalPages }) =>
+                        patchState(store, (s) => ({
+                            [stateKey]: [...(s[stateKey] as Movie[]), ...movies],
+                            currentPage: { ...s.currentPage, [category]: nextPage },
+                            totalPages: { ...s.totalPages, [category]: totalPages },
+                            loadingMore: { ...s.loadingMore, [category]: false },
+                        })),
+                    error: () =>
+                        patchState(store, (s) => ({
+                            loadingMore: { ...s.loadingMore, [category]: false },
                         })),
                 });
         },

@@ -18,7 +18,12 @@ const CATEGORY_KEYS: MovieCategoryKey[] = ['now_playing', 'popular', 'top_rated'
                 <p class="movie-list-subtitle">Discover the latest and greatest films</p>
             </header>
 
-            <app-movie-carousel title="Now Playing">
+            <app-movie-carousel
+                title="Now Playing"
+                [loadingMore]="store.loadingMore()['now_playing']"
+                [hasMore]="!store.totalPages()['now_playing'] || store.currentPage()['now_playing'] < store.totalPages()['now_playing']"
+                (nearEnd)="store.loadMore('now_playing')"
+            >
                 @for (movie of store.nowPlaying(); track movie.id) {
                     <app-movie-card [movie]="movie" />
                 } @empty {
@@ -30,7 +35,12 @@ const CATEGORY_KEYS: MovieCategoryKey[] = ['now_playing', 'popular', 'top_rated'
                 }
             </app-movie-carousel>
 
-            <app-movie-carousel title="Popular">
+            <app-movie-carousel
+                title="Popular"
+                [loadingMore]="store.loadingMore()['popular']"
+                [hasMore]="!store.totalPages()['popular'] || store.currentPage()['popular'] < store.totalPages()['popular']"
+                (nearEnd)="store.loadMore('popular')"
+            >
                 @for (movie of store.popular(); track movie.id) {
                     <app-movie-card [movie]="movie" />
                 } @empty {
@@ -42,7 +52,12 @@ const CATEGORY_KEYS: MovieCategoryKey[] = ['now_playing', 'popular', 'top_rated'
                 }
             </app-movie-carousel>
 
-            <app-movie-carousel title="Top Rated">
+            <app-movie-carousel
+                title="Top Rated"
+                [loadingMore]="store.loadingMore()['top_rated']"
+                [hasMore]="!store.totalPages()['top_rated'] || store.currentPage()['top_rated'] < store.totalPages()['top_rated']"
+                (nearEnd)="store.loadMore('top_rated')"
+            >
                 @for (movie of store.topRated(); track movie.id) {
                     <app-movie-card [movie]="movie" />
                 } @empty {
@@ -54,7 +69,12 @@ const CATEGORY_KEYS: MovieCategoryKey[] = ['now_playing', 'popular', 'top_rated'
                 }
             </app-movie-carousel>
 
-            <app-movie-carousel title="Upcoming">
+            <app-movie-carousel
+                title="Upcoming"
+                [loadingMore]="store.loadingMore()['upcoming']"
+                [hasMore]="!store.totalPages()['upcoming'] || store.currentPage()['upcoming'] < store.totalPages()['upcoming']"
+                (nearEnd)="store.loadMore('upcoming')"
+            >
                 @for (movie of store.upcoming(); track movie.id) {
                     <app-movie-card [movie]="movie" />
                 } @empty {
