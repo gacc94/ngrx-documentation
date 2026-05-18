@@ -38,4 +38,12 @@ export class MovieApi {
             .get<TmdbMovieDto>(`${this.#baseUrl}/movie/${id}`, { params: this.#params() })
             .pipe(map(mapTmdbMovie));
     }
+
+    search(query: string, page = 1): Observable<TmdbPaginatedResponse<Movie>> {
+        return this.#http
+            .get<TmdbPaginatedResponse<TmdbMovieDto>>(`${this.#baseUrl}/search/movie`, {
+                params: { ...this.#params(), query, page },
+            })
+            .pipe(map((res) => ({ ...res, results: res.results.map(mapTmdbMovie) })));
+    }
 }
