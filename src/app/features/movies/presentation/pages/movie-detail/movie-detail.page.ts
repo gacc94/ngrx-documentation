@@ -5,10 +5,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
-import { QueryCacheService } from '@app/cache';
-import { MovieImagePipe } from '../../../application/movie-image.pipe';
-import type { Movie } from '../../../domain/movie.model';
-import { MovieApi } from '../../../infrastructure/movie.api';
+import { QueryCacheService } from '@core/cache';
+import { MovieImagePipe } from '@features/movies/application/movie-image.pipe';
+import type { Movie } from '@features/movies/domain/movie.model';
+import { MovieApi } from '@features/movies/infrastructure/movie.api';
 
 @Component({
     selector: 'app-movie-detail',

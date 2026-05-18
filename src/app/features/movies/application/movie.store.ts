@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { QueryCacheService } from '@app/cache';
+import { QueryCacheService } from '@core/cache';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { map } from 'rxjs';
 import type { Movie } from '../domain/movie.model';

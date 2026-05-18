@@ -1,8 +1,8 @@
 import { DestroyRef, Directive, ElementRef, inject, input, type OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { debounceTime, filter, fromEvent, map, merge, type Observable } from 'rxjs';
-import type { QueryOptions } from '../cache';
-import { QueryCacheService } from '../cache';
+import { QueryCacheService } from './query-cache.service';
+import type { QueryOptions } from './query-cache.types';
 
 /**
  * Prefetch cache data on user intent signals.

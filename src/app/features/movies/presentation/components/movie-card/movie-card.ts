@@ -3,10 +3,10 @@ import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 
-import { PrefetchDirective } from '@app/cache/prefetch.directive';
-import { MovieImagePipe } from '../../../application/movie-image.pipe';
-import type { Movie } from '../../../domain/movie.model';
-import { MovieApi } from '../../../infrastructure/movie.api';
+import { PrefetchDirective } from '@core/cache/prefetch.directive';
+import { MovieImagePipe } from '@features/movies/application/movie-image.pipe';
+import type { Movie } from '@features/movies/domain/movie.model';
+import { MovieApi } from '@features/movies/infrastructure/movie.api';
 
 @Component({
     selector: 'app-movie-card',

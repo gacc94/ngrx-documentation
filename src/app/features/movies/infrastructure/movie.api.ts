@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { environment } from '@env';
 import { map, type Observable } from 'rxjs';
-
-import { environment } from '../../../../environments/environment';
 import type { Movie, TmdbPaginatedResponse } from '../domain/movie.model';
 import type { TmdbMovieDto } from './tmdb.dto';
 import { mapTmdbMovie } from './tmdb.mapper';

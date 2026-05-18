@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, type OnInit } from '@angular/core';
-import { MovieStore } from '../../../application/movie.store';
-import type { MovieCategoryKey } from '../../../infrastructure/movie.api';
+import { MovieStore } from '@features/movies/application/movie.store';
+import type { MovieCategoryKey } from '@features/movies/infrastructure/movie.api';
 import { MovieCardComponent } from '../../components/movie-card/movie-card';
 import { MovieCarouselComponent } from '../../components/movie-carousel/movie-carousel';
 
