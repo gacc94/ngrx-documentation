@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/gacc94/ngrx-documentation/compare/v1.1.0...v1.1.1) (2026-05-18)
+
+
+### Bug Fixes
+
+* 🐛 fix: migrate MovieStore from withState arrays to withEntities named collections ([06ca12c](https://github.com/gacc94/ngrx-documentation/commit/06ca12c53047dcf39180af7686c9d98cf37397eb))
+
 # [1.1.0](https://github.com/gacc94/ngrx-documentation/compare/v1.0.0...v1.1.0) (2026-05-18)
 
 
