@@ -1,0 +1,137 @@
+:host {
+    display: block;
+    position: relative;
+    height: 560px;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        height: 420px;
+    }
+
+    @media (max-width: 480px) {
+        height: 340px;
+    }
+}
+
+.hero-backdrop {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: transform 8s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.hero-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 30%, var(--mat-sys-background) 100%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.45) 50%, rgba(0, 0, 0, 0.15) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+        padding: 32px 16px 16px;
+    }
+}
+
+.hero-info {
+    max-width: 600px;
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+
+.hero-title {
+    margin: 0 0 12px;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: white;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+    }
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @media (max-width: 480px) {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.hero-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #ffc107;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.hero-year {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.hero-votes {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+.hero-overview {
+    margin: 0 0 24px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @media (max-width: 480px) {
+        -webkit-line-clamp: 2;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+    }
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+    }
+}
