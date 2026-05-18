@@ -1,4 +1,5 @@
 import { inject } from '@angular/core';
+import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { QueryCacheService } from '@core/cache';
 import { tapResponse } from '@ngrx/operators';
 import { patchState, signalStore, type, withMethods, withState } from '@ngrx/signals';
@@ -49,6 +50,7 @@ const COLLECTION_MAP: Record<MovieCategoryKey, string> = {
 
 export const MovieStore = signalStore(
     { providedIn: 'root' },
+    withDevtools('movies'),
     withEntities(nowPlayingConfig),
     withEntities(popularConfig),
     withEntities(topRatedConfig),

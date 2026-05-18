@@ -5,6 +5,7 @@
     "": {
       "name": "ngrx-documentation",
       "dependencies": {
+        "@angular-architects/ngrx-toolkit": "^21.0.1",
         "@angular/animations": "^21.2.13",
         "@angular/cdk": "^21.2.11",
         "@angular/common": "^21.2.0",
@@ -75,6 +76,8 @@
     "@algolia/requester-node-http": ["@algolia/requester-node-http@5.48.1", "", { "dependencies": { "@algolia/client-common": "5.48.1" } }, "sha512-xcaCqbhupVWhuBP1nwbk1XNvwrGljozutEiLx06mvqDf3o8cHyEgQSHS4fKJM+UAggaWVnnFW+Nne5aQ8SUJXg=="],
 
     "@ampproject/remapping": ["@ampproject/remapping@2.3.0", "", { "dependencies": { "@jridgewell/gen-mapping": "^0.3.5", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw=="],
+
+    "@angular-architects/ngrx-toolkit": ["@angular-architects/ngrx-toolkit@21.0.1", "", { "dependencies": { "tslib": "^2.3.0" }, "peerDependencies": { "@angular/common": "^21.0.0", "@angular/core": "^21.0.0", "@ngrx/signals": "^21.0.0", "@ngrx/store": "^21.0.0", "rxjs": "^7.0.0" }, "optionalPeers": ["@ngrx/store"] }, "sha512-mbwNxO+HIhf5ocUdgj7ywrSCpLLzgAg+whktDDhBoVQfLdlTZKoI6NRuOAjxTksaaok85Wv6+nHGBRuJLDIjsQ=="],
 
     "@angular-devkit/architect": ["@angular-devkit/architect@0.2102.11", "", { "dependencies": { "@angular-devkit/core": "21.2.11", "rxjs": "7.8.2" }, "bin": { "architect": "bin/cli.js" } }, "sha512-t7J8aaUho1mXjiIecPNX5/rjXeV8j8ZCGY5tD3ic5kzKxPkbuYYcQpJLdzlmBcN+wDgCmNdo8ySvItvU0m58lg=="],
 
