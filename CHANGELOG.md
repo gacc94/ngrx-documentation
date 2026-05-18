@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/gacc94/ngrx-documentation/compare/v1.1.1...v1.2.0) (2026-05-18)
+
+
+### Features
+
+* ✨ feat: integrate ngrx-toolkit devtools for SignalStore traceability ([4619bb1](https://github.com/gacc94/ngrx-documentation/commit/4619bb1afbe49365502144fcbb85616742761cf8))
+
 ## [1.1.1](https://github.com/gacc94/ngrx-documentation/compare/v1.1.0...v1.1.1) (2026-05-18)
 
 
