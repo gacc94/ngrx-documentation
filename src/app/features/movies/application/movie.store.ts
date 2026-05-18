@@ -3,7 +3,7 @@ import { QueryCacheService } from '@core/cache';
 import { tapResponse } from '@ngrx/operators';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { concatMap, exhaustMap, filter, map, pipe, tap } from 'rxjs';
+import { concatMap, filter, map, mergeMap, pipe, tap } from 'rxjs';
 import type { Movie } from '../domain/movie.model';
 import type { MovieCategoryKey } from '../infrastructure/movie.api';
 import { MovieApi } from '../infrastructure/movie.api';
@@ -44,7 +44,7 @@ export const MovieStore = signalStore(
         loadCategory: rxMethod<MovieCategoryKey>(
             pipe(
                 tap((category) => patchState(store, (s) => ({ loading: { ...s.loading, [category]: true } }))),
-                exhaustMap((category) => {
+                mergeMap((category) => {
                     const stateKey = STATE_KEY_MAP[category];
                     return cache
                         .query<Movie[]>(
