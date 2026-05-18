@@ -8,11 +8,11 @@ import { MovieHeroComponent } from '../../components/movie-hero/movie-hero';
 const CATEGORY_KEYS: MovieCategoryKey[] = ['now_playing', 'popular', 'top_rated', 'upcoming'];
 
 const CAROUSEL_CONFIGS = [
-    { id: 'now_playing', title: 'Now Playing', signalKey: 'nowPlaying' as const },
-    { id: 'popular', title: 'Popular', signalKey: 'popular' as const },
-    { id: 'top_rated', title: 'Top Rated', signalKey: 'topRated' as const },
-    { id: 'upcoming', title: 'Upcoming', signalKey: 'upcoming' as const },
-] as const;
+    { id: 'now_playing' as const, title: 'Now Playing', signalKey: 'nowPlayingEntities' as const },
+    { id: 'popular' as const, title: 'Popular', signalKey: 'popularEntities' as const },
+    { id: 'top_rated' as const, title: 'Top Rated', signalKey: 'topRatedEntities' as const },
+    { id: 'upcoming' as const, title: 'Upcoming', signalKey: 'upcomingEntities' as const },
+];
 
 @Component({
     selector: 'app-movie-list',
@@ -20,7 +20,7 @@ const CAROUSEL_CONFIGS = [
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrl: './movie-list.page.scss',
     template: `
-        @if (store.nowPlaying()[0]; as featured) {
+        @if (store['nowPlayingEntities']()[0]; as featured) {
             <app-movie-hero [movie]="featured" />
         } @else {
             <div class="hero-skeleton">
