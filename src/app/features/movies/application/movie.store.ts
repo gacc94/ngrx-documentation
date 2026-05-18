@@ -73,9 +73,11 @@ export const MovieStore = signalStore(
         loadMore: rxMethod<MovieCategoryKey>(
             pipe(
                 filter((category) => {
-                    const nextPage = (store.currentPage() as Record<string, number>)[category] + 1;
-                    const totalPages = (store.totalPages() as Record<string, number>)[category];
-                    return !totalPages || nextPage <= totalPages;
+                    const cp = (store.currentPage() as Record<string, number>)[category];
+                    if (!cp) return false;
+                    const nextPage = cp + 1;
+                    const tp = (store.totalPages() as Record<string, number>)[category];
+                    return !tp || nextPage <= tp;
                 }),
                 tap((category) => patchState(store, (s) => ({ loadingMore: { ...s.loadingMore, [category]: true } }))),
                 concatMap((category) => {

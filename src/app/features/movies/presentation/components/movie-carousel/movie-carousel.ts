@@ -88,13 +88,11 @@ export class MovieCarouselComponent implements AfterViewInit {
                 )
                 .subscribe(() => {
                     const el = this.track().nativeElement;
+                    if (el.scrollWidth <= el.clientWidth) return;
                     const remaining = el.scrollWidth - el.scrollLeft - el.clientWidth;
 
                     if (remaining <= SCROLL_END_THRESHOLD_PX) {
-                        if (!this.#lastEmittedNearEnd && this.hasMore()) {
-                            this.#lastEmittedNearEnd = true;
-                            this.nearEnd.emit();
-                        }
+                        this.#checkNearEnd(el);
                         return;
                     }
 
@@ -116,12 +114,16 @@ export class MovieCarouselComponent implements AfterViewInit {
         this.atEnd = el.scrollLeft + el.clientWidth + 1 >= el.scrollWidth;
         this.atStart = el.scrollLeft <= 1;
 
+        this.#checkNearEnd(el);
+    }
+
+    #checkNearEnd(el: HTMLDivElement): void {
+        if (el.scrollWidth <= el.clientWidth) return;
         const remaining = el.scrollWidth - el.scrollLeft - el.clientWidth;
         if (remaining <= SCROLL_END_THRESHOLD_PX && !this.#lastEmittedNearEnd && this.hasMore()) {
             this.#lastEmittedNearEnd = true;
             this.nearEnd.emit();
         }
-
         if (remaining > SCROLL_END_THRESHOLD_PX + 201) {
             this.#lastEmittedNearEnd = false;
         }
