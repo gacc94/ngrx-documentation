@@ -13,10 +13,9 @@ import type { Movie } from '@features/movies/domain/movie.model';
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrl: './movie-hero.scss',
     template: `
-        <div
-            class="hero-backdrop"
-            [style.background-image]="'url(' + (movie().backdropPath ?? movie().posterPath | movieImage: 'original') + ')'"
-        ></div>
+        <div class="hero-backdrop"
+            [style.background-image]="'url(' + (movie().backdropPath ?? movie().posterPath | movieImage: 'original') + ')'">
+        </div>
 
         <div class="hero-gradient"></div>
 

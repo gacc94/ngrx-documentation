@@ -12,10 +12,14 @@ import { SearchBarComponent } from '../search-bar/search-bar';
     styleUrl: './header.scss',
     template: `
         <header class="header-inner">
-            <a routerLink="/movies" class="logo">
+            <a routerLink="/" class="logo">
                 <mat-icon fontIcon="local_movies" class="logo-icon" />
                 <span class="logo-text">MovieDB</span>
             </a>
+
+            <nav class="header-nav">
+                <a routerLink="/movies" class="nav-link">Movies</a>
+            </nav>
 
             <div class="header-right">
                 <div class="search-area">

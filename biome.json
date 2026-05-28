@@ -44,6 +44,7 @@
         "parser": {
             "interpolation": true
         },
+        "experimentalFullSupportEnabled": true,
         "formatter": {
             "attributePosition": "auto"
         }

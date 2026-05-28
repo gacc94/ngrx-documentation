@@ -1,0 +1,20 @@
+:host {
+    display: block;
+}
+
+.footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--mat-sys-outline-variant);
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    font: var(--mat-sys-body-small);
+    color: var(--mat-sys-on-surface-variant);
+    margin: 0;
+}

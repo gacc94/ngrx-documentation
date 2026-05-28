@@ -3,8 +3,7 @@ import type { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'movies',
-        pathMatch: 'full',
+        loadComponent: () => import('./features/home/presentation/pages/home/home.page').then((m) => m.HomePage),
     },
     {
         path: 'movies',

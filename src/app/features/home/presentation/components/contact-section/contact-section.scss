@@ -1,0 +1,58 @@
+:host {
+    display: block;
+}
+
+.contact {
+    padding: 5rem 2rem;
+    background: rgb(255 255 255 / 3%);
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-title {
+    font: var(--mat-sys-headline-large);
+    font-weight: 700;
+    margin: 0 0 1rem;
+    color: var(--mat-sys-on-background);
+}
+
+.contact-description {
+    font: var(--mat-sys-body-large);
+    color: var(--mat-sys-on-surface-variant);
+    margin: 0 0 2.5rem;
+    line-height: 1.6;
+}
+
+.contact-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--mat-sys-primary);
+    font: var(--mat-sys-body-large);
+    font-weight: 500;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.contact-link:hover {
+    background: rgb(255 255 255 / 5%);
+}
+
+.contact-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
