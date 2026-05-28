@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/gacc94/ngrx-documentation/compare/v1.3.0...v1.4.0) (2026-05-28)
+
+
+### Features
+
+* ✨ feat(home): add static Home page with SSG prerendering ([548f6b7](https://github.com/gacc94/ngrx-documentation/commit/548f6b7926d5a7ee5551af9f5f86e4542c13fd54))
+
 # [1.3.0](https://github.com/gacc94/ngrx-documentation/compare/v1.2.0...v1.3.0) (2026-05-18)
 
 
